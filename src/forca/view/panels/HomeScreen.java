@@ -1,7 +1,6 @@
 package forca.view.panels;
 
 import java.awt.Font;
-import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -45,7 +44,7 @@ public class HomeScreen extends JPanel {
 		this.add(lblTitle);
 
 		JButton btnPlay = new JButton("Play");
-		btnPlay.addActionListener(e -> btnPlayActionPerfomed(e));
+		btnPlay.addActionListener(e -> btnPlayActionPerfomed());
 		btnPlay.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnPlay.setBounds(10, 83, 430, 23);
 		this.add(btnPlay);
@@ -55,11 +54,11 @@ public class HomeScreen extends JPanel {
 		btnRegisterWord.setBounds(10, 117, 430, 23);
 		this.add(btnRegisterWord);
 
-		this.frameHelper.configFrame(frame, this);
+		this.frameHelper.configFrame(this.frame, this);
 
 	}
 
-	private void btnPlayActionPerfomed(ActionEvent e) {
+	private void btnPlayActionPerfomed() {
 
 		List<Word> words = this.getWords();
 
