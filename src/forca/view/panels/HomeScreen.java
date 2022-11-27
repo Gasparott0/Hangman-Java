@@ -50,6 +50,7 @@ public class HomeScreen extends JPanel {
 		this.add(btnPlay);
 
 		JButton btnRegisterWord = new JButton("Add a new word!");
+		// TODO create the Register Word panel
 		btnRegisterWord.setFont(new Font("Arial", Font.PLAIN, 14));
 		btnRegisterWord.setBounds(10, 117, 430, 23);
 		this.add(btnRegisterWord);
