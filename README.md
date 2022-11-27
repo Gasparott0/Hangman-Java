@@ -1,5 +1,5 @@
 # Hangman-Java
-Hangman implemented in java using components of java swing and Observer design pattern .
+Hangman implemented in java using components of java swing and Observer design pattern.
 
 Some screenshots
 
@@ -20,3 +20,5 @@ Some screenshots
 ![Screenshot](screenshots/Screenshot_7.png)
 
 ![Screenshot](screenshots/Screenshot_8.png)
+
+# Missing the Register Word panel...
