@@ -1,4 +1,4 @@
-package forca.model;
+package forca.domain.model;
 
 public interface WordObserver {
 

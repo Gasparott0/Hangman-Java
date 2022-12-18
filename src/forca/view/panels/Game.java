@@ -20,9 +20,10 @@ import javax.swing.SwingConstants;
 import javax.swing.text.AbstractDocument;
 import javax.swing.text.DocumentFilter;
 
-import forca.model.Word;
-import forca.model.WordEvent;
-import forca.model.WordObserver;
+import forca.domain.model.Word;
+import forca.domain.model.WordEvent;
+import forca.domain.model.WordObserver;
+import forca.domain.service.ShotService;
 import forca.view.Frame;
 import forca.view.helper.FrameHelper;
 import forca.view.helper.UppercaseDocumentFilter;
@@ -34,6 +35,9 @@ public class Game extends JPanel implements WordObserver {
 
 	// used to scroll through the word list
 	private int wordIndex = 0;
+
+	// word service
+	private ShotService shotService;
 
 	// word being used in the game
 	private Word currentWord;
@@ -50,10 +54,11 @@ public class Game extends JPanel implements WordObserver {
 	private JLabel lblTip;
 	private JLabel lblCurrentWord;
 
-	public Game(Frame frame, List<Word> words) {
+	public Game(Frame frame, List<Word> words, ShotService shotService) {
 
 		this.frame = frame;
 		this.words = words;
+		this.shotService = shotService;
 		this.filter = new UppercaseDocumentFilter();
 
 //		setPreferredSize(new Dimension(600, 300));
@@ -136,7 +141,7 @@ public class Game extends JPanel implements WordObserver {
 			backToHomeScreen();
 			break;
 		case HIT:
-			updateTip(currentWord.getLastTry());
+			updateTip(currentWord.getCorrectAttempts());
 			break;
 		case MISS:
 			errors++;
@@ -180,7 +185,7 @@ public class Game extends JPanel implements WordObserver {
 	private void btnHitActionPerformed() {
 		String input = txtLetter.getText();
 		if (input.length() == 1)
-			currentWord.shot(input.charAt(0));
+			shotService.shot(currentWord, input.charAt(0));
 		else
 			JOptionPane.showMessageDialog(null, "Enter a letter!");
 	}

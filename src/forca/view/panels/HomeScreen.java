@@ -18,7 +18,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
-import forca.model.Word;
+import forca.domain.model.Word;
+import forca.domain.service.ShotService;
 import forca.view.Frame;
 import forca.view.helper.FrameHelper;
 
@@ -30,12 +31,16 @@ public class HomeScreen extends JPanel {
 	private FrameHelper frameHelper = new FrameHelper();
 
 	private Frame frame;
+	
+	private ShotService shotService;
 
 	public HomeScreen(Frame frame) {
 
 		this.frame = frame;
 
 		this.frameHelper.initFrame(this, 450, 200);
+		
+		shotService = new ShotService();
 
 		JLabel lblTitle = new JLabel("Hangman Game");
 		lblTitle.setFont(new Font("Arial", Font.PLAIN, 18));
@@ -66,7 +71,7 @@ public class HomeScreen extends JPanel {
 		if (words.isEmpty())
 			JOptionPane.showMessageDialog(null, "You have no registered words");
 		else
-			new Game(this.frame, this.getWords());
+			new Game(this.frame, this.getWords(), shotService);
 
 	}
 
