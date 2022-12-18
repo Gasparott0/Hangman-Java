@@ -31,7 +31,7 @@ public class HomeScreen extends JPanel {
 	private FrameHelper frameHelper = new FrameHelper();
 
 	private Frame frame;
-	
+
 	private ShotService shotService;
 
 	public HomeScreen(Frame frame) {
@@ -39,7 +39,7 @@ public class HomeScreen extends JPanel {
 		this.frame = frame;
 
 		this.frameHelper.initFrame(this, 450, 200);
-		
+
 		shotService = new ShotService();
 
 		JLabel lblTitle = new JLabel("Hangman Game");

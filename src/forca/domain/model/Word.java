@@ -83,42 +83,4 @@ public class Word {
 		return observers;
 	}
 
-//	public void shot(char letter) {
-//
-//		if (isAlreadyTried(letter)) {
-//			notifyObservers(WordEvent.LETTER_ALREADY_TRIED);
-//		} else {
-//
-//			List<Integer> positions = new ArrayList<>();
-//
-//			for (int i = 0; i < qtdLetters; i++) {
-//				if (letter == content.charAt(i))
-//					positions.add(i);
-//			}
-//
-//			if (positions.size() > 0) {
-//				hit += positions.size();
-//				correctAttempts.put(letter, positions);
-//				notifyObservers(WordEvent.HIT);
-//				if (hit == qtdLetters)
-//					notifyObservers(WordEvent.WIN);
-//
-//			} else if (miss > 0) {
-//				notifyObservers(WordEvent.MISS);
-//				miss--;
-//			} else {
-//				notifyObservers(WordEvent.LOSE);
-//			}
-//		}
-//
-//	}
-//
-//	private boolean isAlreadyTried(char letter) {
-//		if (lettersAttempts.contains(letter)) {
-//			return true;
-//		}
-//		lettersAttempts.add(letter);
-//		return false;
-//	}
-
 }
